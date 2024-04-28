@@ -1,3 +1,22 @@
+#2024 sujet 14
+
+#exercice 1
+def min_max(tab):
+    """ Liste [] --> dict{}"""
+    dicto = {'min':None ,'max':None}
+    min = tab[0]
+    max = tab[0]
+    for value in tab:
+        if value < min:
+            min = value
+        dicto['min'] = min
+        if value > max:
+            max = value
+        dicto['max'] = max
+    return dicto
+
+
+#exercice 2
 class Carte:
     def __init__(self, c, v):
         """Initialise les attributs couleur (entre 1 et 4), 
@@ -23,15 +42,15 @@ class Paquet_de_cartes:
         """ Initialise l'attribut contenu avec une liste des 52
         objets Carte possibles rangés par valeurs croissantes en
         commençant par pique, puis cœur, carreau et trèfle. """
-        ...
-        ...
-            ...
-                ...
+        self.contenu = []
+        for couleur in range(1, 5):
+            for valeur in range(1, 14):
+                carte = Carte(couleur, valeur)
+                self.contenu.append(carte)
 
     def recuperer_carte(self, pos):
-        """ Renvoie la carte qui se trouve à la position pos 
+        """ Renvoie la carte qui se trouve à la position pos
         (entier compris entre 0 et 51). """
-        ...
-        ...
-
-
+        assert pos >= 0 and pos <= 51
+        return self.contenu[pos]
+ 
